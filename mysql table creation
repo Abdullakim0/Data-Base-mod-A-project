@@ -1,0 +1,8 @@
+CREATE TABLE environment_damage (
+    id INT(11) AUTO_INCREMENT PRIMARY KEY,
+    scientist_name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    report_title VARCHAR(255) NOT NULL,
+    report_description TEXT NOT NULL,
+    file_path VARCHAR(255) NOT NULL
+);
