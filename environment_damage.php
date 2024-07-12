@@ -168,19 +168,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $uploadOk = 1;
         $fileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
-        // Check if file already exists
+        // If file already exists
         if (file_exists($target_file)) {
             echo "<div class='error-message'>Sorry, file already exists.</div>";
             $uploadOk = 0;
         }
 
-        // Check file size (max 5MB)
+        // File size (max 5MB)
         if ($_FILES["report_file"]["size"] > 5 * 1024 * 1024) {
             echo "<div class='error-message'>Sorry, your file is too large.</div>";
             $uploadOk = 0;
         }
 
-        // Allow certain file formats
+        // Certain file formats
         if($fileType != "pdf" && $fileType != "doc" && $fileType != "docx") {
             echo "<div class='error-message'>Sorry, only PDF, DOC, and DOCX files are allowed.</div>";
             $uploadOk = 0;
@@ -189,7 +189,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Check if $uploadOk is set to 0 by an error
         if ($uploadOk == 0) {
             echo "<div class='error-message'>Sorry, your file was not uploaded.</div>";
-            // if everything is ok, try to upload file
         } else {
             if (move_uploaded_file($_FILES["report_file"]["tmp_name"], $target_file)) {
                 // Insert data into database
